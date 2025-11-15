@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Реєстрація (Tailwind)</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka+One&family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* Додаємо кастомний шрифт для лого */
+        .font-fredoka { font-family: 'Fredoka One', cursive; }
+        body { font-family: 'Roboto', sans-serif; }
+    </style>
+</head>
+<body class="bg-red-600 flex items-center justify-center h-screen">
+
+<div class="w-full max-w-sm p-5 text-center">
+
+    <img src="images/Fated_Logo2.webp" alt="Fated Logo" class="w-24 h-24 mx-auto mb-2">
+
+    <h1 class="font-fredoka text-white text-6xl mb-5 tracking-wide">
+        FATED
+    </h1>
+
+    <div class="flex mb-6">
+        <button class="flex-1 py-2 border-2 border-white text-white font-bold text-sm">
+            LOGIN
+        </button>
+        <button class="flex-1 py-2 border-2 border-white bg-white text-red-600 font-bold text-sm">
+            REGISTER
+        </button>
+    </div>
+
+    <form class="flex flex-col gap-4">
+        <input type="text" placeholder="user name" class="bg-white rounded-lg p-4 text-base placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-400">
+        <input type="password" placeholder="password" class="bg-white rounded-lg p-4 text-base placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-400">
+        <input type="email" placeholder="email" class="bg-white rounded-lg p-4 text-base placeholder-gray-400 focus:outline-none focus:ring-4 focus:ring-blue-400">
+
+        <a href="#" class="text-white text-xs text-right -mt-2 mb-2">
+            FORGOT PASSWORD?
+        </a>
+
+        <button type="submit" class="bg-white text-red-600 font-bold py-4 rounded-lg text-lg mt-2">
+            REGISTER
+        </button>
+    </form>
+
+    <p class="text-white text-sm mt-6">
+        ALREADY HAVE AN ACCONT? <a href="#" class="font-bold">LOGIN</a>
+    </p>
+
+</div>
+
+</body>
+</html>
