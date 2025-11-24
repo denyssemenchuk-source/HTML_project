@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Лабораторна робота: Vue 3 + Tailwind CSS</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; }
+        /* Стилі для блоків коду */
+        code { font-family: 'Menlo', 'Monaco', 'Courier New', monospace; }
+        .code-block {
+            background-color: #1e293b; /* Slate 800 */
+            color: #f8fafc; /* Slate 50 */
+            padding: 1rem;
+            border-radius: 0.5rem;
+            overflow-x: auto;
+            margin-top: 0.5rem;
+            margin-bottom: 1rem;
+            font-size: 0.875rem;
+            line-height: 1.5;
+            border: 1px solid #334155;
+        }
+        .cmd-prefix::before {
+            content: "$ ";
+            color: #64748b;
+            user-select: none;
+        }
+        .step-number {
+            background: linear-gradient(135deg, #1f46e5 0%, #818cf8 100%);
+        }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 leading-relaxed">
+
+<div class="max-w-4xl mx-auto px-4 py-12">
+
+    <header class="text-center mb-12">
+        <h1 class="text-4xl font-extrabold text-slate-900 mb-4">Лабораторна робота</h1>
+        <p class="text-xl text-slate-600">Інтеграція <span class="text-sky-500 font-semibold">Tailwind CSS</span> у проект на <span class="text-green-500 font-semibold">Vue 3</span></p>
+    </header>
+
+    <div class="bg-white p-6 rounded-xl shadow-sm border border-slate-200 mb-10">
+        <h2 class="text-lg font-semibold mb-2 flex items-center gap-2">
+            Мета роботи
+        </h2>
+        <p class="text-slate-600">Навчитися створювати проект на Vue 3 за допомогою Vite, встановлювати Tailwind CSS та налаштовувати конфігураційні файли для роботи з utility-first класами.</p>
+    </div>
+
+    <section class="mb-12 relative pl-8 border-l-2 border-indigo-100">
+        <div class="absolute -left-[17px] top-0 step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-slate-50">1</div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mb-4">Встановлення Tailwind CSS</h3>
+        <p class="mb-4">Встановимо Tailwind та його залежності (PostCSS, Autoprefixer), а потім ініціалізуємо конфігурацію:</p>
+
+        <div class="code-block">
+            <div class="cmd-prefix">npm install -D tailwindcss postcss autoprefixer</div>
+            <div class="cmd-prefix">npx tailwindcss init -p</div>
+        </div>
+        <p class="text-sm text-slate-500">Це створить файли <code class="bg-slate-200 text-slate-700 px-1 rounded text-xs">tailwind.config.js</code> та <code class="bg-slate-200 text-slate-700 px-1 rounded text-xs">postcss.config.js</code>.</p>
+    </section>
+
+    <section class="mb-12 relative pl-8 border-l-2 border-indigo-100">
+        <div class="absolute -left-[17px] top-0 step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-slate-50">2</div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mb-4">Налаштування шляхів (Content)</h3>
+        <p class="mb-4">Відкрийте файл <code class="bg-slate-200 text-slate-700 px-1 rounded font-bold">tailwind.config.js</code> і замініть вміст <code class="text-indigo-600">content</code>:</p>
+
+        <div class="code-block">
+<pre>/** @type {import('tailwindcss').Config} */
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{vue,js,ts,jsx,tsx}",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}</pre>
+        </div>
+    </section>
+
+    <section class="mb-12 relative pl-8 border-l-2 border-indigo-100">
+        <div class="absolute -left-[17px] top-0 step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-slate-50">3</div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mb-4">Додавання CSS директив</h3>
+        <p class="mb-4">Відкрийте файл <code class="bg-slate-200 text-slate-700 px-1 rounded font-bold">src/style.css</code>. Видаліть усе зайве і додайте:</p>
+
+        <div class="code-block">
+<pre>@tailwind base;
+@tailwind components;
+@tailwind utilities;</pre>
+        </div>
+    </section>
+
+    <section class="mb-12 relative pl-8 border-l-2 border-indigo-100">
+        <div class="absolute -left-[17px] top-0 step-number w-8 h-8 rounded-full flex items-center justify-center text-white font-bold text-sm shadow-lg border-4 border-slate-50">4</div>
+
+        <h3 class="text-2xl font-bold text-slate-800 mb-4">Перевірка роботи</h3>
+        <p class="mb-4">Замініть вміст файлу <code class="bg-slate-200 text-slate-700 px-1 rounded font-bold">src/App.vue</code> на наступний код:</p>
+
+        <div class="code-block">
+<pre>&lt;script setup&gt;
+// Логіка тут не потрібна для тесту
+&lt;/script&gt;
+
+&lt;template&gt;
+  &lt;div class="flex flex-col items-center justify-center min-h-screen bg-gray-100"&gt;
+
+    &lt;div class="p-8 bg-white rounded-xl shadow-lg hover:shadow-2xl transition-shadow duration-300 max-w-sm"&gt;
+      &lt;h1 class="text-3xl font-bold text-indigo-600 mb-4"&gt;
+        Vue 3 + Tailwind CSS
+      &lt;/h1&gt;
+      &lt;p class="text-gray-600 leading-relaxed"&gt;
+        Вітаю! Ви успішно виконали лабораторну роботу.
+        Tailwind CSS працює коректно.
+      &lt;/p&gt;
+
+      &lt;button class="mt-6 px-6 py-2 bg-indigo-500 text-white font-semibold rounded-full
+                     hover:bg-indigo-600 focus:ring-2 focus:ring-indigo-400 transition"&gt;
+        Натисни мене
+      &lt;/button&gt;
+    &lt;/div&gt;
+
+  &lt;/div&gt;
+&lt;/template&gt;</pre>
+        </div>
+
+        <p class="mb-4 mt-6">Запустіть проект командою:</p>
+        <div class="code-block">
+            <div class="cmd-prefix">npm run dev</div>
+        </div>
+    </section>
+
+    <footer class="mt-16 pt-8 border-t border-slate-200 text-center text-slate-400 text-sm">
+        <h1>Результат</h1>
+        Якщо ви бачите картку з тінню, заголовком індиго-кольору та кнопкою по центру екрана — вітаю, лабораторна робота виконана успішно! 🎉<br><br>
+
+        🧠 Завдання для самостійного виконання<br>
+        Спробуйте змінити код в App.vue, щоб створити:<br>
+
+        Дві колонки (використовуйте grid grid-cols-2 gap-4).<br>
+
+        Зробіть, щоб на мобільних телефонах колонки ставали в один стовпчик (використовуйте префікс md:grid-cols-2).<br>
+
+        Змініть колір фону кнопки на зелений (bg-green-500).
+    </footer>
+
+</div>
+
+</body>
+</html>
