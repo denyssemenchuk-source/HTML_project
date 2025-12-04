@@ -1,5 +1,4 @@
 <script setup lang="ts">
- // 1. Імпортуємо компонент
 import UserCard from '@/components/UserCard.vue';
 </script>
 
